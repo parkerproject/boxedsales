@@ -1,20 +1,20 @@
 var _ = require('underscore'),
     mongoskin = require('mongoskin'),
     config = require('../config/config.js'),
-    key = config.key();
-db = mongoskin.db(config.mongodb(), {
-    safe: true
-});
+    n = 1,
+    numProducts = 200,
+    db = mongoskin.db(config.mongodb(), {
+        safe: true
+    });
 
 
 
 var salesTpl = function(options) {
-    var discount = (options.basePrice.value - options.originalPrice.value) / options.originalPrice.value;
-    var discountPercent = discount * (-100);
 
+    var api = options.API;
 
     var html = ['<div class="small-12 large-3 columns">',
-        '<span class="high label percentoff">' + discountPercent.toFixed() + '% off</span>',
+        '<span class="high label percentoff">' + discountPercent + '% off</span>',
         '<h5 class="truncate">' + options.name + '</h5>',
         '<img src="' + options.imageList.image[1].sourceURL + '" width="200" height="200" />',
         '<div class="caption">',
@@ -33,43 +33,35 @@ var salesTpl = function(options) {
     return html;
 };
 
+
+var getData = function(res) {
+    db.collection('offers_3_24_2014').find().sort({
+        id: 1
+    }).limit(500).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+
+        var salesArray = [];
+
+        for (var i = 0, len = result.length; i < len; i++) {
+            var cachedItem = result[i];
+            var item = salesTpl(cachedItem);
+            salesArray.push(item);
+        }
+
+
+        // res.render('index', {
+        //     data: salesArray.join(''),
+        //     title: 'BoxedSales',
+        //     server: serverConfig
+        // });
+    });
+};
+
+
+
 module.exports = function(app) {
     app.get('/', function(req, res, next) {
-
-        var url = 'http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/json/GeneralSearch?&apiKey=' + key + '&keyword=' + keyword + '&visitorUserAgent&visitorIPAddress&showOnSaleOnly=true&numItems=120&showOffersOnly=true&pageNumber=' + n;
-
-        superagent
-            .get(url)
-            .set('Accept', 'aaplication/json')
-            .end(function(error, results) {
-                if (error) next(error);
-                var cleanData = JSON.parse(results.text);
-
-                var salesArray = [];
-                var data = cleanData.categories.category[0].items.item;
-
-                for (var i = 0, len = data.length; i < len; i++) {
-                    var cachedItem = data[i].offer;
-                    var item = salesTpl(cachedItem);
-                    salesArray.push(item);
-                }
-
-                var matchedItemCount = cleanData.categories.category[0].items.matchedItemCount;
-                var returnedItemCount = cleanData.categories.category[0].items.returnedItemCount;
-                var pageNumber = cleanData.categories.category[0].items.returnedItemCount.pageNumber;
-
-                var serverConfig = {
-                    matchedItemCount: matchedItemCount,
-                    returnedItemCount: returnedItemCount,
-                    pageNumber: pageNumber
-                };
-
-
-                res.render('index', {
-                    data: salesArray.join(''),
-                    title: 'BoxedSales',
-                    server: serverConfig
-                });
-            });
+        getData(res);
     });
 };
