@@ -1,0 +1,173 @@
+@font-face {
+  font-family: 'ClearSans_Light';
+  src: url("../fonts/EOT/ClearSans-Light.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/EOT/ClearSans-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/WOFF/ClearSans-Light.woff") format("woff"), url("../fonts/TTF/ClearSans-Light.ttf") format("truetype"), url("../fonts/SVG/ClearSans-Light.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
+@font-face {
+  font-family: 'ClearSans-Bold';
+  src: url("../fonts/EOT/ClearSans-Bold.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/EOT/ClearSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/WOFF/ClearSans-Bold.woff") format("woff"), url("../fonts/TTF/ClearSans-Bold.ttf") format("truetype"), url("../fonts/SVG/ClearSans-Bold.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
+@font-face {
+  font-family: 'ClearSans-Regular';
+  src: url("../fonts/EOT/ClearSans-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/EOT/ClearSans-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/WOFF/ClearSans-Regular.woff") format("woff"), url("../fonts/TTF/ClearSans-Regular.ttf") format("truetype"), url("../fonts/SVG/ClearSans-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
+body {
+  font-family: 'ClearSans-Regular', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; }
+
+#header {
+  width: 100%;
+  position: relative;
+  background-color: #222;
+  height: 136px;
+  text-align: center;
+  color: #fff; }
+  #header .intro {
+    font-family: 'ClearSans_Light'; }
+    #header .intro .button {
+      text-transform: uppercase;
+      font-weight: 700 !important; }
+    #header .intro span {
+      font-size: 1.5em; }
+  #header #search {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    background: url(../img/boxes.png) no-repeat;
+    text-indent: -9999px;
+    width: 20px;
+    height: 19px;
+    cursor: pointer; }
+  #header h1 {
+    color: grey;
+    margin: 0 auto;
+    position: relative;
+    top: 5px;
+    width: 30%;
+    font-family: 'ClearSans-Bold'; }
+  #header p {
+    text-transform: normal;
+    font-size: 2em;
+    margin: 0; }
+
+#sales {
+  margin-top: 20px; }
+  #sales .columns {
+    border-bottom: 1px solid grey;
+    position: relative;
+    overflow: hidden;
+    padding-left: 0;
+    margin-bottom: 10px;
+    height: 320px; }
+    #sales .columns:hover {
+      cursor: pointer; }
+      #sales .columns:hover .caption {
+        opacity: 1; }
+    #sales .columns img {
+      margin: 0px;
+      padding: 0px;
+      float: left;
+      z-index: 4; }
+    #sales .columns .percentoff {
+      margin: 0;
+      font-size: 1.2em; }
+  #sales .blur {
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 200px;
+    width: 250px;
+    z-index: 5;
+    position: absolute; }
+  #sales .caption {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: all 0.45s ease-in-out;
+    -moz-transition: all 0.45s ease-in-out;
+    -o-transition: all 0.45s ease-in-out;
+    -ms-transition: all 0.45s ease-in-out;
+    transition: all 0.45s ease-in-out; }
+  #sales img {
+    margin: 0px;
+    padding: 0px;
+    z-index: 4; }
+  #sales .caption-text {
+    z-index: 10;
+    color: #fff;
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    text-align: center;
+    top: 0; }
+    #sales .caption-text .oldprice {
+      font-size: 1em;
+      text-decoration: line-through; }
+    #sales .caption-text .newprice {
+      font-size: 2em; }
+    #sales .caption-text h5 {
+      color: white; }
+  #sales .buy-recommend {
+    width: 250px;
+    position: relative;
+    top: 40px;
+    line-height: 67px;
+    height: 67px;
+    display: block;
+    vertical-align: bottom; }
+
+.warning {
+  background-color: #f0ad4e;
+  color: #000; }
+
+.label {
+  font-size: 0.9rem;
+  Background-color: transparent !important; }
+
+.high {
+  color: #b81621 !important; }
+
+.low {
+  color: #222; }
+
+.medium {
+  color: #f0ad4e; }
+
+.alert {
+  background-color: #b81621 !important;
+  border-color: #b81621 !important;
+  font-weight: bold !important; }
+
+.secondary, .success {
+  font-weight: bold !important; }
+
+#category li {
+  color: #222;
+  text-align: left;
+  border-bottom: 1px solid #ccc; }
+  #category li:last-child {
+    border-bottom: none; }
+  #category li a {
+    font-weight: bold; }
+
+.prices {
+  position: relative;
+  top: 20px; }
+
+h5 {
+  height: 50px;
+  font-family: 'ClearSans-Bold';
+  font-size: 1em; }
+
+.retailer {
+  color: #222;
+  font-size: 0.9em;
+  float: left;
+  width: 100%; }

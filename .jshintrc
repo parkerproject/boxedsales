@@ -1,0 +1,22 @@
+{
+  "node": true,
+  "browser": true,
+  "esnext": true,
+  "bitwise": false,
+  "camelcase": false,
+  "curly": false,
+  "eqeqeq": false,
+  "immed": false,
+  "latedef": false,
+  "newcap": false,
+  "noarg": false,
+  "regexp": false,
+  "undef": false,
+  "unused": false,
+  "trailing": false,
+  "smarttabs": false,
+  "white": false,
+  "globals": {
+    "jQuery": false
+  }
+}
