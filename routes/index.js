@@ -1,8 +1,10 @@
 var _ = require('underscore'),
     mongoskin = require('mongoskin'),
-    db = mongoskin.db('mongodb://admin:admin123@ds033599.mongolab.com:33599/boxedsales', {
-        safe: true
-    });
+    config = require('../config/config.js'),
+    key = config.key();
+db = mongoskin.db(config.mongodb(), {
+    safe: true
+});
 
 
 
@@ -34,7 +36,7 @@ var salesTpl = function(options) {
 module.exports = function(app) {
     app.get('/', function(req, res, next) {
 
-        var url = 'http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/json/GeneralSearch?&apiKey=20fd8adb-a2ce-4f0a-bc32-b813d0a96eb5&trackingId=8080337&keyword=' + keyword + '&visitorUserAgent&visitorIPAddress&showOnSaleOnly=true&numItems=120&showOffersOnly=true&pageNumber=' + n;
+        var url = 'http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/json/GeneralSearch?&apiKey=' + key + '&keyword=' + keyword + '&visitorUserAgent&visitorIPAddress&showOnSaleOnly=true&numItems=120&showOffersOnly=true&pageNumber=' + n;
 
         superagent
             .get(url)
