@@ -60,7 +60,7 @@ body {
     margin: 0; }
 
 #sales {
-  margin-top: 20px; }
+  margin: 20px auto 0 auto; }
   #sales .columns {
     border-bottom: 1px solid grey;
     position: relative;
@@ -122,6 +122,8 @@ body {
     height: 67px;
     display: block;
     vertical-align: bottom; }
+  #sales .masonry-brick {
+    width: 200px; }
 
 .warning {
   background-color: #f0ad4e;

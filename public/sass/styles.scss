@@ -78,7 +78,7 @@ body {
 }
 
 #sales{
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     .columns{
         border-bottom: 1px solid grey;
         position: relative;
@@ -154,6 +154,10 @@ body {
        height: 67px;
        display: block;
        vertical-align: bottom;
+    }
+
+    .masonry-brick{
+        width: 200px
     }
 }
 
