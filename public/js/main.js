@@ -8,8 +8,7 @@ require.config({
         'backbone': '../vendor/backbone',
         'foundation': '../vendor/foundation',
         'text': '../vendor/text',
-        'succinct': '../vendor/jQuery.succinct',
-        'masonry': '../vendor/masonry.pkgd.min'
+        'succinct': '../vendor/jQuery.succinct'
     },
     // The shim config allows us to configure dependencies for
     // scripts that do not call define() to register a module

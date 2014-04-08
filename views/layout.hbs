@@ -17,7 +17,13 @@
   {{/if}}
   <script data-main="js/main" src="/vendor/require.js"></script>
   <script>var timerStart = Date.now();</script>
-  <script>var data = {{{test}}};</script>
+   <script>
+    define('config', function() {
+      return {
+            salesData: {{{data}}}
+          };
+        });
+  </script>
 </body>
 </html>
 

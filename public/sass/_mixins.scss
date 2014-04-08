@@ -1,13 +1,5 @@
 // this file will contain all mixins, functions, etc
 
 @mixin text-align($position){
-    @if $position == center{
-        text-align: center;
-    }
-    @if $position == left{
-        text-align: left;
-    }
-    @if $position == right{
-        text-align: right;
-    }
+    text-align: $position;
 }
