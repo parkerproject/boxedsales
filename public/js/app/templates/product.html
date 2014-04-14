@@ -1,16 +1,16 @@
-<div class="small-12 large-3 columns">
-<span class="high label percentoff">{{((basePrice.value-originalPrice.value)/originalPrice.value*100*(-1)).toFixed()}}% off</span>
+<div class="small-12 large-3 columns item">
+<span class="high label percentoff">{{salespercent}}% off</span>
 <h5 class="truncate">{{name}}</h5>
-  <img src="{{imageList.image[1]['sourceURL']}}" width="200" height="200" />
+  <img src="{{image.sizes.Large.url}}" />
   <div class="caption">
     <div class="blur"></div>
         <div class="caption-text">
-        <div class="prices"><span class="oldprice">${{originalPrice.value}}</span><span class="newprice">${{basePrice.value}}</span></div>
-            <div class="buy-recommend" data-id="{{id}}" data-url="{{offerURL}}" data-sku="{{sku}}" data-categoryid="{{categoryId}}" data-store="{{store['name']}}" data-storeid="{{store['id']}}" data-rating="{{store['ratingInfo']['rating']}}" data-reviewcount="{{store['ratingInfo']['reviewCount']}}">
-                <a href="{{offerURL}}" class="button small radius alert">Buy</a>
+        <div class="prices"><span class="oldprice">${{price}}</span><span class="newprice">${{salePrice}}</span></div>
+            <div class="buy-recommend" data-id="{{id}}" data-url="{{clickUrl}}" data-seeMoreLabel="{{seeMoreLabel}}" data-categories="{{categories.name}}" data-store="{{retailer.name}}" data-storeid="{{retailer.id}}" data-brand="{{brand.name}}" data-inStock="{{inStock}}">
+                <a href="{{clickUrl}}" class="button small radius alert js-buy">Buy</a>
                 <a href="/facebook" class="button small radius success">Recommend</a>
             </div>
         </div>
     </div>
-    <a href="" class="retailer">{{store['name']}}</a>
+    <a href="" class="retailer">{{retailer.name}}</a>
 </div>

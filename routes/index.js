@@ -2,33 +2,32 @@ var _ = require('underscore'),
     superagent = require('superagent'),
     config = require('../config/config.js'),
     querystring = require('querystring'),
-    url = 'http://sandbox.api.ebaycommercenetwork.com/publisher/3.0/json/GeneralSearch?';
+    url = 'http://api.shopstyle.com/api/v2/products?';
 
-var buildQuery = querystring.stringify({
-    apiKey: config.key(),
-    trackingId: 8080337,
-    keyword: config.keywords(),
-    numItems: 30,
-    pageNumber: 1
-});
-
-
-buildQuery = url + buildQuery + '&visitorUserAgent&visitorIPAddress&showOnSaleOnly=true&showOffersOnly=true';
 
 
 module.exports = function(app) {
     app.get('/', function(req, res, next) {
+
+        var buildQuery = querystring.stringify({
+            pid: config.shopstyleKey(),
+            //fts: req.query.fts || 'dress',
+            offset: 0,
+            limit: 40,
+            fl: 'd0'
+        });
+
+        buildQuery = url + buildQuery;
         superagent
             .get(buildQuery)
             .set('Accept', 'aplication/json')
             .end(function(error, results) {
                 if (error) next(error);
                 var cleanData = JSON.parse(results.text);
-
                 res.render('index', {
                     title: 'BoxedSales',
-                    data: JSON.stringify(cleanData)
-                    //server: serverConfig
+                    //data: JSON.stringify(cleanData.categories.category[0].items.item)
+                    data: JSON.stringify(cleanData.products)
                 });
 
             });

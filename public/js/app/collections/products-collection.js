@@ -6,9 +6,11 @@ define([
     var Products = Backbone.Collection.extend({
         model: Model,
 
-        parse: function(response) {
-            return response.salesData.categories.category[0].items.item;
-        }
+        url: function() {
+            return '/products/' + this.page
+        },
+
+        page: 1
     });
 
     return Products;
